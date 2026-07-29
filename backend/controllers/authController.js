@@ -97,7 +97,7 @@ export const register = async (req, res) => {
         
       export const profile = async (req, res) => {
         try {
-            const user = await user.findByPk(req.user.id, {
+            const user = await User.findByPk(req.user.id, {
                 attributes: {
                     exclude: ["password"],
                 },

@@ -1,16 +1,16 @@
 import jwt from "jsonwebtoken";
 
-export const protect = async (req, resizeBy, next) => {
+export const protect = async (req, res, next) => {
     try {
         const authHeader = req.headers.authorization;
 
         if (!authHeader || !authHeader.startsWith("Bearer")) {
-            return resizeBy.status(401).json({
+            return res.status(401).json({
                 message: "Token manquant",
             });
         }
 
-        const token = authHeader.split("")[1];
+        const token = authHeader.split(" ")[1];
 
         const decoded = jwt.verify(
             token,
@@ -20,9 +20,11 @@ export const protect = async (req, resizeBy, next) => {
         req.user = decoded;
 
         next();
-    }catch (error) {
-        resizeBy.status(401).json({
-            message: "Token invalide",
-        });
-    }
+   } catch (error) {
+  console.log(error.message);
+
+  return res.status(401).json({
+    message: "Token invalide",
+  });
+}
 };
