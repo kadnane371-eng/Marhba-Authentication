@@ -75,16 +75,9 @@ export default function LoginScreen() {
         <Text style={styles.buttonText}>{isSubmitting ? "Connexion..." : "Se connecter"}</Text>
       </Pressable>
 
-      <Text style={styles.or}>OU</Text>
-
-      <Pressable style={styles.googleButton}>
-        <Ionicons name="logo-google" size={20} color="#EA4335" />
-        <Text style={styles.googleText}>Continuer avec Google</Text>
-      </Pressable>
-
+    
       <View style={styles.footer}>
-        <Text>Nouveau ici ?</Text>
-
+        
         <Pressable onPress={() => router.push("/register")}>
           <Text style={styles.link}>S'inscrire</Text>
         </Pressable>
@@ -164,25 +157,6 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
 
-  or: {
-    textAlign: "center",
-    marginVertical: 20,
-    color: "#888",
-  },
-
-  googleButton: {
-    flexDirection: "row",
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "#fff",
-    padding: 15,
-    borderRadius: 15,
-    gap: 10,
-  },
-
-  googleText: {
-    fontWeight: "600",
-  },
 
   footer: {
     flexDirection: "row",
